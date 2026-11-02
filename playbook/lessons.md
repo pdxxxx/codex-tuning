@@ -77,13 +77,13 @@
 
 ## 15. 注释里堆满否定句
 
-- **现象**：同一个网关项目的 ticket 系列包里，2215 行注释有 465 行带 not、never、does not，例如 "an operator-supplied exact allowlist, not node discovery"、"Business admission never consumes this view"。README 开头也连写了好几句"没有修改……不是……不会……"。
+- **现象**：同一个网关项目由 agent 新写的那部分包里，2215 行注释有 465 行带 not、never、does not，典型句式是"X is an allowlist, not discovery""Y never consumes this view"。README 开头也连写了好几句"没有修改……不是……不会……"。
 - **原因**：推测与第 7 条相同：规划和 spec 里的免责句被带进了注释和文档。
 - **对策**：写作规则要求注释说明代码做什么、为什么，不罗列它不做什么；只有读者最容易误解的地方才写否定句。
 
 ## 16. 自建一致性协议
 
-- **现象**：一个网关加 worker 的项目，ticket 系列包的生产代码里 epoch 出现 474 次、fence 375 次、generation 326 次，节点切换要经过多层 fence 和 epoch 校验，每一步之后都重新检查状态。修复这些协议本身的竞态，又占用了后续好几次修复提交。
+- **现象**：同一个项目由网关和多个 worker 组成，agent 新写的那部分生产代码里 epoch 出现 474 次、fence 375 次、generation 326 次，节点切换要经过多层 fence 和 epoch 校验，每一步之后都重新检查状态。修复这些协议本身的竞态，又占用了后续好几次修复提交。
 - **原因**：遇到多节点一致性问题时，agent 倾向在应用层设计协议，而不是先看数据库已经提供的事务、行锁和唯一约束能否解决。
 - **对策**：规则要求先用数据库机制；确有必要自建协议时，在设计里说明数据库机制为什么不够。审规划时看到 epoch、fence、lease 这类新词，要问清理由。
 
