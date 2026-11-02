@@ -18,6 +18,7 @@ tools/audit_repo.py         仓库体检：规模、超长函数、超长行、�
 playbook/workflow.md        规则放在哪、一个任务的节奏、什么时候用 /goal
 playbook/review-checklist.md 审 Codex 的规划和交付时看什么
 playbook/lessons.md         观察到的 Codex 行为和对策
+playbook/ui-redesign.md     指挥 Codex 做界面改造：参考稿、设计规范、分阶段截图审阅
 prompts/                    可直接粘贴的提示词模板
 tests/                      hook、安装脚本和体检工具的行为测试
 ```

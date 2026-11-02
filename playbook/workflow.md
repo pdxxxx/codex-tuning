@@ -23,7 +23,7 @@
 2. **Codex 规划**：用 `prompts/plan-task.md`。让它写完规划就停下。
 3. **审规划**：对照 `review-checklist.md`。回复用 `prompts/review-feedback.md`，明确写"改完停下"或"改完继续"。
 4. **执行**：普通模式；或者在所有决定都已写进任务文件后，用 `/goal`（`prompts/goal.md`）。
-5. **验收**：自己复现关键数字，对照 `review-checklist.md` 审交付，不只看 Codex 的报告。
+5. **验收**：自己复现关键数字，对照 `review-checklist.md` 审交付，不只看 Codex 的报告。规范较长时，要求它提交逐条的规格对照表（`prompts/spec-check.md`）。
 6. **沉淀**：新发现的行为写进 `lessons.md`；能自动检查的，补进 hook 或 lint。
 
 ## 什么时候用 /goal
@@ -42,6 +42,10 @@
 ## 排查线上问题
 
 不要靠读代码推断根因。用 `prompts/real-debug.md`：本地复现，每次只改一个变量，设定请求预算，记录每次实验，再用同一个请求验证修复。
+
+## 界面改造
+
+Codex 能把界面实现准确，但做不出好看的设计。先写可以在浏览器里打开的参考稿和精确到数值的设计规范，再分阶段实施，每个阶段截图审阅。完整做法见 `ui-redesign.md`。
 
 ## 新接手一个仓库
 
