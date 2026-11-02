@@ -13,6 +13,7 @@ global/AGENTS.md            全局规则，安装到 ~/.codex/AGENTS.md 的标�
 global/hooks/style_reminder.py  UserPromptSubmit：每轮注入 3 行规则摘要，上下文压缩后仍然有效
 global/hooks/style_guard.py     Stop：检查本轮 diff，发现问题时拦一次，让 Codex 修复或说明
 install.py                  安装、更新、卸载；只改自己的部分，并备份改动过的文件
+INSTALL.md                  写给 AI agent 的安装步骤
 tools/audit_repo.py         仓库体检：规模、超长函数、超长行、命名、概念词频率、文档量、提交粒度
 playbook/workflow.md        规则放在哪、一个任务的节奏、什么时候用 /goal
 playbook/review-checklist.md 审 Codex 的规划和交付时看什么
@@ -22,6 +23,18 @@ tests/                      hook、安装脚本和体检工具的行为测试
 ```
 
 ## 安装
+
+### 交给 AI 安装
+
+把下面这句话发给 Codex（或其他能执行命令的 AI agent）：
+
+```
+阅读 https://raw.githubusercontent.com/pdxxxx/codex-tuning/main/INSTALL.md ，按其中的步骤安装。
+```
+
+它会检查环境、克隆仓库到 `~/codex-tuning`、预览改动、等你确认后安装，最后告诉你要在 Codex 里批准哪些 hook。
+
+### 手动安装
 
 需要 Python 3.10 以上和 git。
 
